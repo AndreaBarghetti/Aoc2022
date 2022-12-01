@@ -22,16 +22,24 @@ sum(sort(elfs, decreasing = T)[1:3])
 
 
 # Visualization ####
-image <- ggplot(data=NULL,aes(x=seq_along(elfs), y=sort(elfs))) +
-  geom_point(size=.1,) +
+image <- ggplot(data=tibble(elfs),
+                aes(xmin=lag(seq_along(elfs),default = 0),
+                    xmax=(seq_along(elfs)),
+                    ymin=sort(elfs)+(sort(elfs)/3),
+                    ymax=sort(elfs)-(sort(elfs)/3),
+                    col=sort(elfs),
+                    fill=sort(elfs))) +
+  geom_rect(show.legend = F, stat="identity", size=.1) +
   theme_void() +
-  theme(panel.background = element_rect(fill = "darkgreen",
-                                        colour = "black",
-                                        size = .5, linetype = "solid")) +
-  labs(x=NULL, y="Snacks")
+  labs(x=NULL, y="Snacks") +
+  scale_fill_gradient(low = "black", high = "darkgreen") +
+  coord_polar(theta = "x")
+
+image
 
 ggsave(plot = image,
-       filename = "image.png",
+       dpi = 300,
+       filename = "day1.png",
        device = "png",
        path = "Day1/",
        width = 4,
