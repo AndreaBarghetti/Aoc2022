@@ -27,9 +27,8 @@ image <- ggplot(data=tibble(elfs),
                     xmax=(seq_along(elfs)),
                     ymin=sort(elfs)+(sort(elfs)/3),
                     ymax=sort(elfs)-(sort(elfs)/3),
-                    col=sort(elfs),
                     fill=sort(elfs))) +
-  geom_rect(show.legend = F, stat="identity", size=.1) +
+  geom_rect(show.legend = F, stat="identity", size=.1, col="black") +
   theme_void() +
   labs(x=NULL, y="Snacks") +
   scale_fill_gradient(low = "black", high = "darkgreen") +
