@@ -30,7 +30,6 @@ image <- ggplot(data=tibble(elfs),
                     fill=sort(elfs))) +
   geom_rect(show.legend = F, stat="identity", size=.1, col="black") +
   theme_void() +
-  labs(x=NULL, y="Snacks") +
   scale_fill_gradient(low = "black", high = "darkgreen") +
   coord_polar(theta = "x")
 
