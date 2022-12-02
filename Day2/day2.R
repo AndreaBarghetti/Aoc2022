@@ -129,7 +129,8 @@ plot1 <- ggplot(df2) +
             show.legend = F) +
   # facet_wrap(~part, scales="free") +
   theme_bw() +
-  theme(panel.background = element_rect(fill = "transparent")) +
+  theme(panel.background = element_rect(fill = "transparent"),
+        text = element_text(size=8)) +
   scale_x_log10() +
   scale_y_log10() +
   labs(y="Score", x=NULL)
@@ -141,7 +142,8 @@ plot2 <- df2 %>%
   geom_line(show.legend = F) +
   # theme_void() +
   theme_bw() +
-  theme(panel.background = element_rect(fill = "transparent")) +
+  theme(panel.background = element_rect(fill = "transparent"),
+        text = element_text(size=8)) +
   scale_x_log10() +
   labs(y="Cheating detection",x="Round")
 
@@ -150,8 +152,8 @@ image <- ggpubr::ggarrange(plot1,plot2, ncol = 1, align = "v")
 
 ggsave(plot = image,
        dpi = 300,
-       filename = "day2.png",
+       filename = "plot.png",
        device = "png",
        path = "Day2/",
-       width = 10,
-       height = 10, units = "cm")
+       width = 8,
+       height = 8, units = "cm")
