@@ -3,7 +3,6 @@ library(tidyverse)
 input <- readLines("Day2/input.txt")
 
 # part1 ####
-
 rules <- c(RR = 1+3, RP = 2+6, RS = 3+0,
            PR = 1+0, PP = 2+3, PS = 3+6,
            SR = 1+6, SP = 2+0, SS = 3+3)
