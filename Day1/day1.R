@@ -36,14 +36,14 @@ image
 
 ggsave(plot = image,
        dpi = 300,
-       filename = "day1.png",
+       filename = "plot.png",
        device = "png",
        path = "Day1/",
        width = 4,
        height = 4, units = "cm")
 
 
-# better ways
+# other ways
 
 tibble(x=as.integer(input)) %>%
   mutate(elf=cumsum(is.na(x))) %>%
