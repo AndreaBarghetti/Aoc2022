@@ -5,7 +5,6 @@ My solutions for the Advent of Code 2022
 ### The Golden Giraffes
 ![image](https://github.com/AndreaBarghetti/AoC2021/blob/main/golden_giraffes.png)
 
-
 ## AoC2022 story illustraed with AI generated images from DALL·E
 [DALL·E](https://labs.openai.com/)
 
@@ -18,4 +17,9 @@ My solutions for the Advent of Code 2022
 
 ## My data visualizations:
 ### Day 1
-![image_d1](https://github.com/AndreaBarghetti/AoC2022/blob/main/Day1/day1.png)
+![image_d1](https://github.com/AndreaBarghetti/AoC2022/blob/main/Day1/plot.png)
+
+### Day 2
+![image_d1](https://github.com/AndreaBarghetti/AoC2022/blob/main/Day2/plot.png)
+
+[<img src="Day2/plot.png" width="250"/>]("Day2/plot.png")
