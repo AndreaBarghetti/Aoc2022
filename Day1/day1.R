@@ -2,7 +2,6 @@ library(tidyverse)
 
 input <- readLines("Day1/input.txt")
 
-
 # part1 ####
 elfs <- 0
 
@@ -44,3 +43,13 @@ ggsave(plot = image,
        height = 4, units = "cm")
 
 
+# better ways
+
+tibble(x=as.integer(input)) %>%
+  mutate(elf=cumsum(is.na(x))) %>%
+  count(elf, wt = x) %>%
+  arrange(desc(n))
+
+values <- as.integer(input)
+groups <- values %>% is.na() %>% cumsum()
+split(values, groups) %>% sapply(sum, na.rm=T) %>% max()
