@@ -9,11 +9,10 @@ My solutions for the Advent of Code 2022
 [DALL·E](https://labs.openai.com/)
 
 ### Day 1
-![image_d1](Day1/DALL·E.png)
+![<img src="Day1/DALL·E.png" width="500"/>](Day1/DALL·E.png)
 
 ### Day 2
-![image_d2](Day2/DALL·E.png)
-
+![<img src="Day2/DALL·E.png" width="500"/>](Day2/DALL·E.png)
 
 ## My data visualizations:
 ### Day 1
