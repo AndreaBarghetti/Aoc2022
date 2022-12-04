@@ -17,9 +17,11 @@ My solutions for the Advent of Code 2022
 ### Day 3
 ![<img src="Day3/DALL·E.png" width="500"/>](Day3/DALL·E.png)
 
+### Day 4
+![<img src="Day4/DALL·E.png" width="500"/>](Day4/DALL·E.png)
+
 ## My data visualizations:
 ### Day 1
-![<img src="Day1/plot.png" width="500"/>](Day1/plot.png)
+# ![<img src="Day1/plot.png" width="500"/>](Day1/plot.png)
 
 ### Day 2
-[<img src="Day2/plot.png" width="500"/>]("Day2/plot.png")

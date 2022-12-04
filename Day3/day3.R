@@ -4,7 +4,6 @@ input <- readLines("Day3/input.txt")
 
 # part1 ####
 get_common <- function(sack) {
-
   map_chr(sack, function(sack) {
     split <- str_split(sack,"", simplify = T)
     c1 <- split[1:length(split)/2]
@@ -41,5 +40,3 @@ get_badge <- function(group) {
 map_chr(groups,get_badge) %>%
   get_score() %>%
   sum()
-
-

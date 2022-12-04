@@ -67,7 +67,7 @@ random_results <- map_dfr(1:100, function(x) {
 })
 
 
-df <- tibble(p1=points1, p2=points2, X=0) %>%
+df <- tibble(p1=getpoints1(input), p2=getpoints2(input), X=0) %>%
   bind_rows(random_results) %>%
   group_by(X) %>%
   mutate(round=row_number(),
