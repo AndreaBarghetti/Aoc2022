@@ -19,9 +19,3 @@ My solutions for the Advent of Code 2022
 
 ### Day 4
 ![<img src="Day4/DALL·E.png" width="500"/>](Day4/DALL·E.png)
-
-## My data visualizations:
-### Day 1
-# ![<img src="Day1/plot.png" width="500"/>](Day1/plot.png)
-
-### Day 2
