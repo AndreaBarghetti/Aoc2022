@@ -1,5 +1,3 @@
-from functools import reduce
-
 with open('Day2/input.txt') as file:
     lines = file.read().strip().split("\n")
 
