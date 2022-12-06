@@ -55,7 +55,7 @@ save_animation <- function(n) {
       print(plot_scan(x))
     }
   },
-  loop=1,
+  loop=T,
   interval=0.05,
   ani.width = 1000,
   ani.height = 100,
