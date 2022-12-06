@@ -23,6 +23,9 @@ My solutions for the Advent of Code 2022
 ### Day 5
 ![<img src="Day5/DALL·E.png" width="500"/>](Day5/DALL·E.png)
 
+### Day 6
+![<img src="Day6/DALL·E.png" width="500"/>](Day6/DALL·E.png)
+
 ## My visualizations
 
 ### Day5
