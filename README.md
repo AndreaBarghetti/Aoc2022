@@ -19,3 +19,12 @@ My solutions for the Advent of Code 2022
 
 ### Day 4
 ![<img src="Day4/DALL·E.png" width="500"/>](Day4/DALL·E.png)
+
+### Day 5
+![<img src="Day5/DALL·E.png" width="500"/>](Day5/DALL·E.png)
+
+## My visualizations
+
+### Day5
+![<img src="Day5/animation.gif" width="500"/>](Day5/animation.gif)
+
