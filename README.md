@@ -28,3 +28,7 @@ My solutions for the Advent of Code 2022
 ### Day5
 ![<img src="Day5/animation.gif" width="500"/>](Day5/animation.gif)
 
+### Day6
+![<img src="Day6/animation.gif" width="500"/>](Day6/animation.gif)
+
+
