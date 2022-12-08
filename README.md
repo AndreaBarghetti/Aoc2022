@@ -26,6 +26,12 @@ My solutions for the Advent of Code 2022
 ### Day 6
 ![<img src="Day6/DALL·E.png" width="500"/>](Day6/DALL·E.png)
 
+### Day 7
+![<img src="Day7/DALL·E.png" width="500"/>](Day7/DALL·E.png)
+
+### Day 8
+![<img src="Day8/DALL·E.png" width="500"/>](Day8/DALL·E.png)
+
 ## My visualizations
 
 ### Day5
@@ -33,5 +39,8 @@ My solutions for the Advent of Code 2022
 
 ### Day6
 ![<img src="Day6/animation.gif" width="500"/>](Day6/animation.gif)
+
+### Day8
+![<img src="Day8/animation.gif" width="500"/>](Day8/animation.gif)
 
 
