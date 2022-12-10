@@ -93,19 +93,19 @@ clean = T
 
 # other way
 library(gganimate)
+
 p <- df_vis %>%
+  filter(i <=100) %>%
+  # filter(knot %in% c("H","9")) %>%
   ggplot(aes(x=x,y=y)) +
   # geom_path(size=4, col="white") +
   geom_point(aes(col=knot), size=4, show.legend = F) +
   theme_void() +
   coord_equal() +
   theme(panel.background = element_rect(fill = "black")) +
-  transition_states(states = i,
-                    transition_length = 1,
-                    state_length = 3) +
-  enter_fade() +
+  transition_time(time = i) +
   exit_fade() +
-  ease_aes('sine-in-out')
+  ease_aes('linear')
 
 # anim_save(p, filename = "gganim.gif", path = ".")
 
