@@ -26,30 +26,4 @@ My solutions for the Advent of Code 2022
 ## AoC2022 story illustraed with AI generated images from DALL·E
 [DALL·E](https://labs.openai.com/)
 
-### Day 1
-<img src="Day1/DALL·E.png" width="50"/>
-
-### Day 2
-<img src="Day2/DALL·E.png" width="200"/>
-
-### Day 3
-<img src="Day3/DALL·E.png" width="200"/>
-
-### Day 4
-<img src="Day4/DALL·E.png" width="200"/>
-
-### Day 5
-<img src="Day5/DALL·E.png" width="200"/>
-
-### Day 6
-<img src="Day6/DALL·E.png" width="200"/>
-
-### Day 7
-<img src="Day7/DALL·E.png" width="200"/>
-
-### Day 8
-!<img src="Day8/DALL·E.png" width="200"/>
-
-### Day 9
-
-### Day 10
+<img src="Day1/DALL·E.png" width="200"/> <img src="Day2/DALL·E.png" width="200"/> <img src="Day3/DALL·E.png" width="200"/> <img src="Day4/DALL·E.png" width="200"/> <img src="Day5/DALL·E.png" width="200"/> <img src="Day6/DALL·E.png" width="200"/> <img src="Day7/DALL·E.png" width="200"/> <img src="Day8/DALL·E.png" width="200"/>
