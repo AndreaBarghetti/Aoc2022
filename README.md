@@ -27,7 +27,7 @@ My solutions for the Advent of Code 2022
 [DALL·E](https://labs.openai.com/)
 
 ### Day 1
-![<img src="Day1/DALL·E.png" width="50" height="50"/>](Day1/DALL·E.png)
+![<img src="Day1/DALL·E.png"/>](Day1/DALL·E.png | width=100)
 
 ### Day 2
 ![<img src="Day2/DALL·E.png" width="500"/>](Day2/DALL·E.png)
