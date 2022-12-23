@@ -57,30 +57,88 @@ get_corners <- function(center, dist, addx=0) {
   tibble(x=mat[,1],y=mat[,2])
 }
 
-# find the manh distance between two parallel lines
-# with slope 1 or -1
-# passing by the given points (corners of a square)
-man_side_dist <- function(corner1,corner2,slope=1) {
-  p1 <- c(corner2[1],corner1[2])
-  diff <- corner2[2]-corner1[2]
-  p1[1]<-p1[1]-diff*slope
-  return(p1[1]-corner1[1])
+man_dist <- function(pos1,pos2) {
+  sum(abs(pos1-pos2))
 }
 
-man_edge_dist <- function(sensor1, sensor2,slope) {
-  corners1 <- get_corners(sensor1[1:2], dist = sensor1[3])
-  corners2 <- get_corners(sensor2[1:2], dist = sensor2[3])
-
-  # if(corners1[1,1] <= corners2[3,1]) {return(c(0))}
-  # if(corners1[2,2] >= corners2[4,2]) {return(c(0))}
-
-  man_side_dist(corners1[2,] %>% as.numeric(),corners2[4,]%>% as.numeric(), slope = slope)
+man_edge_dist <- function(sensor1, sensor2) {
+  man_dist(sensor1[1:2],sensor2[1:2])-sum(sensor1[3],sensor2[3])
 }
+
+# get intersect between 2 segments
+cross_segments <- function(segment1, segment2) {
+
+  A = segment1$start
+  B = segment1$end
+  C = segment2$start
+  D = segment2$end
+
+  slope1 = (B[1]-A[1])/(B[2]-A[2])
+  slope2 = (D[1]-C[1])/(D[2]-C[2])
+
+  # if parallel
+  if (slope1==slope2) {return()}
+
+  k1 = A[2] - A[1] * slope1
+  k2 = D[2] - D[1] * slope2
+
+  x =  (k2 - k1)/(slope1-slope2)
+  y =  x * slope1 + k1
+
+  xrange = range(A[1],B[1])
+  yrange = range(C[2],D[2])
+  if (!between(x,xrange[1],xrange[2])) {return()}
+  if (!between(y,yrange[1],yrange[2])) {return()}
+
+  return(c(x=x,y=y))
+}
+
+# segment1 = list(end=c(1,-1), start=c(5,3))
+# segment2 = list(end=c(2,4), start=c(6,0))
+# cross_segments(segment1, segment2)
+
+# get all edges of a sensor
+# as segments
+get_edges <- function(sensor) {
+  corners = get_corners(sensor[1:2],sensor[3])
+
+  map2(c(4,1,2,3),c(1,2,3,4), function(start,end) {
+    segment = list(start=as.matrix(corners[start,]),end=as.matrix(corners[end,]))
+  })
+}
+
+
+# get intersections between two sensors edges
+get_intersections <- function(sensor1, sensor2) {
+  edges_1 <- get_edges(sensor1)
+  edges_2 <- get_edges(sensor2)
+
+  map(edges_1, function(edge1) {
+    map(edges_2, function(edge2) {
+      cross_segments(edge1,edge2)
+    }) %>% purrr::reduce(bind_rows)
+  }) %>% purrr::reduce(bind_rows)
+}
+
 
 reduce_ranges <- function(ranges) {
   IRanges::IRanges(start = ranges[,1],end=ranges[,2]) %>%
     IRanges::reduce() %>%
-    {cbind(start(.), end(.))}
+    {cbind(IRanges::start(.), IRanges::end(.))}
+}
+
+# check if given position is within the sensors range
+check_coverage <- function(pos, sensor_df) {
+  sensor_df %>%
+    group_by(i) %>%
+    mutate(is_within = man_dist(pos,c(x,y))-dist<=0)
+}
+
+# check if given position is within the sensors range
+# return only T or F
+is_covered <- function(pos,coord_df) {
+  check_coverage(pos,coord_df) %>%
+    pull(is_within) %>% any()
 }
 
 
@@ -91,13 +149,13 @@ plot_space <- function(coord_df,target_range, center_on="sensor") {
     summarise(corners = get_corners(c(x,y),dist,add=.5)) %>%
     unique() %>%
     ggplot(aes(x=corners$x,y=corners$y, fill=center)) +
-    geom_polygon(aes(group=interaction(center,i), fill=center), alpha=.3, size=0,
+    geom_polygon(aes(group=interaction(center,i), fill=center), alpha=.3, linewidth=0,
                  show.legend = F) +
     theme_void() +
     coord_equal() +
     annotate(geom = 'rect', ymin=target_range[1],ymax=target_range[2],
              xmin=target_range[1],xmax=target_range[2], fill="transparent",
-             col="black", size=.1) +
+             col="black", linewidth=.1) +
     geom_point(data=coord_df, aes(x=x,y=y, fill=center),
                alpha=.1,
                shape=22,
